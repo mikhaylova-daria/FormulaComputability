@@ -20,12 +20,12 @@ std::pair< std::complex <double>, std::complex <double> >  CCalculator::quadrati
 
 // n - размерность матрицы; A[n][n] - матрица коэффициентов, F[n] - столбец свободных членов,
 // X[n] - начальное приближение, ответ записывается также в X[n];
-void CCalculator::Jacobi (int n, const std::vector< std::vector <double> >& A, const std::vector<double>& F, std::vector<double>& X)
+STATUS_RESULT CCalculator::Jacobi (int n, const std::vector< std::vector <double> >& A, const std::vector<double>& F, std::vector<double>& X)
 {
     double eps = 0.001;
     std::vector< double > tempX(n);
     double norm; // норма, определяемая как наибольшая разность компонент столбца иксов соседних итераций.
-
+    ///TODO: реалализовать проверку на сходимость
     do {
         for (int i = 0; i < n; i++) {
             tempX[i] = F[i];
@@ -42,4 +42,5 @@ void CCalculator::Jacobi (int n, const std::vector< std::vector <double> >& A, c
             X[h] = tempX[h];
         }
     } while ( norm > eps );
+    return CALCULATED;
 }

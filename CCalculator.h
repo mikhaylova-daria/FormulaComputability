@@ -5,6 +5,8 @@
 #include <complex>
 #include <vector>
 
+enum STATUS_RESULT {INF, CALCULATED, UNCALCULATED, NO_RESULT};
+
 class CCalculator {
 
 public:
@@ -15,7 +17,7 @@ public:
 
     // n - размерность матрицы; A[n][n] - матрица коэффициентов, F[n] - столбец свободных членов,
     // X[n] - начальное приближение, ответ записывается также в X[n];
-    static void Jacobi (int n, const std::vector< std::vector <double> > & A, const std::vector<double>& F, std::vector<double>& X);
+    static STATUS_RESULT Jacobi (int n, const std::vector< std::vector <double> > & A, const std::vector<double>& F, std::vector<double>& X);
 
 };
 

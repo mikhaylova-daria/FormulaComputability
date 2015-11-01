@@ -10,11 +10,11 @@ int main()
     cout <<  result.second.real() << " " << result.second.imag()<<std::endl;
     int n = 3;
     std::vector< std::vector<double> > A;
-    std::vector<double> F{1, 1, 1};
+    std::vector<double> F{1, 1, 0};
     std::vector<double> X(n, 0);
     A.push_back(std::vector<double>{1, 2, 3});
     A.push_back(std::vector<double>{0, 1, 4});
-    A.push_back(std::vector<double>{0, 0, 1});
+    A.push_back(std::vector<double>{0, 0, 0});
     CCalculator::Jacobi(n, A, F, X);
     for (int i = 0; i < n; ++i) {
         std::cout << X[i]<<std::endl;
